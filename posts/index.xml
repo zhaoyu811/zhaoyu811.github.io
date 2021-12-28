@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Posts on Hugo Hermit</title>
-		<link>http://zhaoyu811.github.io/posts/</link>
+		<link>https://zhaoyu811.github.io/posts/</link>
 		<description>Recent content in Posts on Hugo Hermit</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>en-us</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
 		<lastBuildDate>Thu, 09 Dec 2021 16:18:28 +0800</lastBuildDate>
-		<atom:link href="http://zhaoyu811.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="https://zhaoyu811.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
 			<title>文件服务器部署</title>
-			<link>http://zhaoyu811.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</link>
+			<link>https://zhaoyu811.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</link>
 			<pubDate>Thu, 09 Dec 2021 16:18:28 +0800</pubDate>
 			
-			<guid>http://zhaoyu811.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</guid>
+			<guid>https://zhaoyu811.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</guid>
 			<description>服务器部署 远程登陆mstsc yum install xdrp	//安装xrdp 依赖于vnc 需先安装vnc systemctl enable xrdp	//使能服务 systemctl start xrdp //运行服务 netstat -ntlp	//查看是否监听了3389端口 firewall-cmd --zone=public --add-service=rdp --permanent //允许通过防火墙 ftp服务安装(弃用，文件名乱码) yum install proftpd	//安装proftpd systemctl enable proftpd	//使能服务 systemctl start proftpd	//运行服务 netstat -ntlp	//查看是否监听了21端口 firewall-cmd --zone=public --add-service=ftp --permanent //允许通过防火墙 解决ftp服务器 window上传文件，文件名乱码的问题（办法无效）
 windows采用GBK编码，linux采用UTF-8编码，修改linux的默认编码方式
 vi /etc/profile	//修改profile文件 export LC_ALL=&amp;#34;zh_CN.GBK&amp;#34; export LANG=&amp;#34;zh_CN.GBK&amp;#34; locale	//此命令查看编码方式 http服务安装 yum install nginx	//安装nginx systemctl enable nginx.service	//使能服务 systemctl start nginx.service	//运行服务 netstat -ntlp //查看是否监听了80端口 firewall-cmd --zone=public --add-service=http --permanent	//允许通过防火墙 安装securecrt上传下载工具 yum install lrzsz 开启smb服务器 yum install samba chkconfig smb on	//systemctl启动不了服务 需用这个命令 后 systemctl可以正常操作服务 systemctl start smb	//运行服务 firewall-cmd --zone=public --add-service=samba --permanent //允许服务通过防火墙 共享后没有访问权限</description>
@@ -64,10 +64,10 @@ drwxr-xr-x.  <span class="m">5</span> root root unconfined_u:object_r:public_con
 		
 		<item>
 			<title>esp32开发环境搭建</title>
-			<link>http://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+			<link>https://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
 			<pubDate>Sat, 30 Oct 2021 17:43:03 +0800</pubDate>
 			
-			<guid>http://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+			<guid>https://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
 			<description>esp32开发环境搭建 参考网址 https://docs.espressif.com/projects/esp-idf/zh_CN/v4.3.1/esp32/get-started/index.html#esp-idf
 安装开发环境注意问题   开发环境采用VMware+ubuntu20.04+esp-idf+vscode+vscodeEspress-idf插件
   权限问题/dev/ttyUSB*，参考文档解决办法，将用户添加到 Linux Dialout组
@@ -116,10 +116,10 @@ export IDF_GITHUB_ASSETS=&quot;hub.fastgit.org/github_assets&quot;  #加速网�
 		
 		<item>
 			<title>freetype QT移植</title>
-			<link>http://zhaoyu811.github.io/posts/freetyeqt%E7%A7%BB%E6%A4%8D/</link>
+			<link>https://zhaoyu811.github.io/posts/freetyeqt%E7%A7%BB%E6%A4%8D/</link>
 			<pubDate>Sat, 30 Oct 2021 11:42:26 +0800</pubDate>
 			
-			<guid>http://zhaoyu811.github.io/posts/freetyeqt%E7%A7%BB%E6%A4%8D/</guid>
+			<guid>https://zhaoyu811.github.io/posts/freetyeqt%E7%A7%BB%E6%A4%8D/</guid>
 			<description>freetype QT移植 下载 git clone https://gitlab.freedesktop.org/freetype/freetype.git git clone https://gitlab.freedesktop.org/freetype/freetype-demos.git
 QT编译 以QT mingw64 为例
  打开mingw64编译环境 cd freetype目录 执行 mingw32-make.exe 编译完成后将会再objs文件夹下生成freetype.a静态链接库文件  测试  cd freetype-demos目录 两个文件夹同一级目录，用于定位链接库 执行 mingw32-make.exe 编译完成后会在bin目录下生成执行文件 以ftstring 为例， 执行 ftstring.exe -m hello 150 C:\Windows\Fonts\STXINGKA.TTF 使用up down left right home end f5 f6&amp;hellip;&amp;hellip;等按键实现不同的功能  </description>
@@ -148,10 +148,10 @@ git clone <a href="https://gitlab.freedesktop.org/freetype/freetype-demos.git">h
 		
 		<item>
 			<title>RTMP服务器初体验</title>
-			<link>http://zhaoyu811.github.io/posts/rtmp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+			<link>https://zhaoyu811.github.io/posts/rtmp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
 			<pubDate>Wed, 11 Aug 2021 18:57:32 +0800</pubDate>
 			
-			<guid>http://zhaoyu811.github.io/posts/rtmp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+			<guid>https://zhaoyu811.github.io/posts/rtmp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
 			<description>RTMP服务器初体验 1. 运行环境 ​	ubuntu20.04 nginx-1.20.1 nginx-rtmp-module ffmpeg
 2. 安装nginx wget https://nginx.org/download/nginx-1.20.1.tar.gz tar xvf nginx-1.20.1.tar.gz wget https://github.com/arut/nginx-rtmp-module/archive/master.zip unzip master.zip ./configure --prefix=/opt/nginx-1.20.1 --add-module=../nginx-rtmp-module-master --with-http_ssl_module make sudo make install 修改nginx 配置文件添加
 cd /opt/nginx-1.20.1sudo vim ./conf/nginx.confrtmp { server { listen 1935; #监听的端口号application App { #自定义的名字live on; } application hls { live on; hls on; hls_path /tmp/hls; hls_fragment 1s;hls_playlist_length 3s; } } }启动nginx
@@ -220,10 +220,10 @@ sudo make install
 		
 		<item>
 			<title>OpenCv编译测试</title>
-			<link>http://zhaoyu811.github.io/posts/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</link>
+			<link>https://zhaoyu811.github.io/posts/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</link>
 			<pubDate>Wed, 11 Aug 2021 17:53:55 +0800</pubDate>
 			
-			<guid>http://zhaoyu811.github.io/posts/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</guid>
+			<guid>https://zhaoyu811.github.io/posts/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</guid>
 			<description>OPENCV编译测试 1.Ubuntu编译 #wget https://github.com/opencv/opencv/archive/4.5.3.zip#unzip opencv-4.5.3#cd opencv-4.5.3#sudo apt-get install cmake#cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -B ./build -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON#cd ./build#make#make install#vim /etc/ld.so.con加入/usr/local/lib#sudo ldconfig #不执行这一步找不到链接库2.windows编译QT版 所需工具cmake-gui
 第一步
 第二步 选择编译器

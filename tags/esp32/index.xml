@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>esp32 on Hugo Hermit</title>
-    <link>http://zhaoyu811.github.io/tags/esp32/</link>
+    <link>https://zhaoyu811.github.io/tags/esp32/</link>
     <description>Recent content in esp32 on Hugo Hermit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 30 Oct 2021 17:43:03 +0800</lastBuildDate><atom:link href="http://zhaoyu811.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Oct 2021 17:43:03 +0800</lastBuildDate><atom:link href="https://zhaoyu811.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>esp32开发环境搭建</title>
-      <link>http://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <link>https://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Sat, 30 Oct 2021 17:43:03 +0800</pubDate>
       
-      <guid>http://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
       <description>esp32开发环境搭建 参考网址 https://docs.espressif.com/projects/esp-idf/zh_CN/v4.3.1/esp32/get-started/index.html#esp-idf
 安装开发环境注意问题   开发环境采用VMware+ubuntu20.04+esp-idf+vscode+vscodeEspress-idf插件
   权限问题/dev/ttyUSB*，参考文档解决办法，将用户添加到 Linux Dialout组
