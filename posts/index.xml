@@ -1,0 +1,270 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Hugo Hermit</title>
+		<link>http://zhaoyu811.github.io/posts/</link>
+		<description>Recent content in Posts on Hugo Hermit</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Thu, 09 Dec 2021 16:18:28 +0800</lastBuildDate>
+		<atom:link href="http://zhaoyu811.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>文件服务器部署</title>
+			<link>http://zhaoyu811.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</link>
+			<pubDate>Thu, 09 Dec 2021 16:18:28 +0800</pubDate>
+			
+			<guid>http://zhaoyu811.github.io/posts/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/</guid>
+			<description>服务器部署 远程登陆mstsc yum install xdrp	//安装xrdp 依赖于vnc 需先安装vnc systemctl enable xrdp	//使能服务 systemctl start xrdp //运行服务 netstat -ntlp	//查看是否监听了3389端口 firewall-cmd --zone=public --add-service=rdp --permanent //允许通过防火墙 ftp服务安装(弃用，文件名乱码) yum install proftpd	//安装proftpd systemctl enable proftpd	//使能服务 systemctl start proftpd	//运行服务 netstat -ntlp	//查看是否监听了21端口 firewall-cmd --zone=public --add-service=ftp --permanent //允许通过防火墙 解决ftp服务器 window上传文件，文件名乱码的问题（办法无效）
+windows采用GBK编码，linux采用UTF-8编码，修改linux的默认编码方式
+vi /etc/profile	//修改profile文件 export LC_ALL=&amp;#34;zh_CN.GBK&amp;#34; export LANG=&amp;#34;zh_CN.GBK&amp;#34; locale	//此命令查看编码方式 http服务安装 yum install nginx	//安装nginx systemctl enable nginx.service	//使能服务 systemctl start nginx.service	//运行服务 netstat -ntlp //查看是否监听了80端口 firewall-cmd --zone=public --add-service=http --permanent	//允许通过防火墙 安装securecrt上传下载工具 yum install lrzsz 开启smb服务器 yum install samba chkconfig smb on	//systemctl启动不了服务 需用这个命令 后 systemctl可以正常操作服务 systemctl start smb	//运行服务 firewall-cmd --zone=public --add-service=samba --permanent //允许服务通过防火墙 共享后没有访问权限</description>
+			<content type="html"><![CDATA[<h1 id="服务器部署">服务器部署</h1>
+<h2 id="远程登陆mstsc">远程登陆mstsc</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">yum install xdrp		//安装xrdp 依赖于vnc 需先安装vnc
+systemctl <span class="nb">enable</span> xrdp	//使能服务
+systemctl start xrdp 	//运行服务
+netstat -ntlp			//查看是否监听了3389端口
+firewall-cmd --zone<span class="o">=</span>public --add-service<span class="o">=</span>rdp --permanent //允许通过防火墙
+</code></pre></div><h2 id="ftp服务安装弃用文件名乱码">ftp服务安装(弃用，文件名乱码)</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">yum install proftpd		//安装proftpd
+systemctl <span class="nb">enable</span> proftpd	//使能服务
+systemctl start proftpd		//运行服务
+netstat -ntlp				//查看是否监听了21端口
+firewall-cmd --zone<span class="o">=</span>public --add-service<span class="o">=</span>ftp --permanent //允许通过防火墙
+</code></pre></div><p>解决ftp服务器 window上传文件，文件名乱码的问题（<em><strong>办法无效</strong></em>）</p>
+<p>windows采用GBK编码，linux采用UTF-8编码，修改linux的默认编码方式</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">vi /etc/profile			//修改profile文件
+<span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span><span class="s2">&#34;zh_CN.GBK&#34;</span>
+<span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span><span class="s2">&#34;zh_CN.GBK&#34;</span>
+
+locale		//此命令查看编码方式
+</code></pre></div><h2 id="http服务安装">http服务安装</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"> yum install nginx		//安装nginx
+ systemctl <span class="nb">enable</span> nginx.service		//使能服务
+ systemctl start nginx.service		//运行服务
+ netstat -ntlp 						//查看是否监听了80端口
+ firewall-cmd --zone<span class="o">=</span>public --add-service<span class="o">=</span>http --permanent	//允许通过防火墙
+</code></pre></div><h2 id="安装securecrt上传下载工具">安装securecrt上传下载工具</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">yum install lrzsz
+</code></pre></div><h2 id="开启smb服务器">开启smb服务器</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">yum install samba
+chkconfig smb on		//systemctl启动不了服务  需用这个命令 后 systemctl可以正常操作服务
+systemctl start smb		//运行服务
+firewall-cmd --zone<span class="o">=</span>public --add-service<span class="o">=</span>samba --permanent 	//允许服务通过防火墙
+</code></pre></div><p>共享后没有访问权限</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">getenforce	//查看selinux的模式
+setenforce 0	//暂时设置selinux的模式为Permissive，reboot后恢复Enforcing模式
+</code></pre></div><p>这时应该可以正常访问，重启后selinux的模式为 Enforcing，要想正常访问得需要</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">setsebool -P samba_export_all_rw on				//设置共享目录可读取写入
+ls -ldZ ./*
+drwx------. <span class="m">20</span> dell dell unconfined_u:object_r:user_home_dir_t:s0     <span class="m">4096</span> 12月 <span class="m">13</span> 09:18 ./dell
+drwxr-xr-x.  <span class="m">5</span> root root unconfined_u:object_r:public_content_rw_t:s0   <span class="m">54</span> 12月 <span class="m">13</span> 09:50 ./ftproot
+</code></pre></div>]]></content>
+		</item>
+		
+		<item>
+			<title>esp32开发环境搭建</title>
+			<link>http://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+			<pubDate>Sat, 30 Oct 2021 17:43:03 +0800</pubDate>
+			
+			<guid>http://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+			<description>esp32开发环境搭建 参考网址 https://docs.espressif.com/projects/esp-idf/zh_CN/v4.3.1/esp32/get-started/index.html#esp-idf
+安装开发环境注意问题   开发环境采用VMware+ubuntu20.04+esp-idf+vscode+vscodeEspress-idf插件
+  权限问题/dev/ttyUSB*，参考文档解决办法，将用户添加到 Linux Dialout组
+sudo usermod -a -G dialout $USER  idf.py -p /dev/ttyUSB0 flash或者 idf.py -p /dev/ttyUSB0 monitor时经常出现打不开串口的情况，将串口重新连接一下。处理流程：菜单栏Player(p)&amp;ndash;&amp;gt;可移动设备(R)，将设备断开连接&amp;ndash;&amp;gt;连接。
+  开发环境通过github下载慢。通过别的加速网址下载： hub.fastgit.org
+ESP-IDF下载：
+git clone -b v4.3.1 --recursive https://github.com/espressif/esp-idf.git #原命令git clone -b v4.3.1 --recursive https://hub.fastgit.org/espressif/esp-idf.git #加速网址ESP-IDF工具安装器下载， 官方文档通过建立环境变量下载，实际测试通过Espressif的下载服务器下载也比较慢，同样通过别的加速网址下载： hub.fastgit.org
+export IDF_GITHUB_ASSETS=&amp;quot;dl.espressif.com/github_assets&amp;quot; #原命令export IDF_GITHUB_ASSETS=&amp;quot;hub.fastgit.org/github_assets&amp;quot; #加速网址  VSCode 打开头文件的问题，将头文件路径添加到包含路径
+./build	#config配置参数最终将生成.h文件放到./build目录下~/esp/esp-idf/**	#各个模块的头文件~/.espressif/tools/xtensa-esp32-elf/**	#Cpu相关的头文件  VSCode 快捷键设置，跳转更改位置： 根据需要调整 前进 Go Forword 后退 Go Back对应的快捷键。</description>
+			<content type="html"><![CDATA[<h1 id="esp32开发环境搭建">esp32开发环境搭建</h1>
+<h2 id="参考网址">参考网址</h2>
+<p><code>https://docs.espressif.com/projects/esp-idf/zh_CN/v4.3.1/esp32/get-started/index.html#esp-idf</code></p>
+<h2 id="安装开发环境注意问题">安装开发环境注意问题</h2>
+<ul>
+<li>
+<p>开发环境采用VMware+ubuntu20.04+esp-idf+vscode+vscodeEspress-idf插件</p>
+</li>
+<li>
+<p>权限问题<code>/dev/ttyUSB*</code>，参考文档解决办法，将用户添加到 Linux Dialout组</p>
+<pre tabindex="0"><code>sudo usermod -a -G dialout $USER
+</code></pre></li>
+<li>
+<p><code>idf.py -p /dev/ttyUSB0 flash</code>或者 <code>idf.py -p /dev/ttyUSB0 monitor</code>时经常出现打不开串口的情况，将串口重新连接一下。处理流程：菜单栏Player(p)&ndash;&gt;可移动设备(R)，将设备断开连接&ndash;&gt;连接。</p>
+</li>
+<li>
+<p>开发环境通过github下载慢。通过别的加速网址下载： <code>hub.fastgit.org</code></p>
+<p>ESP-IDF下载：</p>
+<pre tabindex="0"><code>git clone -b v4.3.1 --recursive https://github.com/espressif/esp-idf.git #原命令
+git clone -b v4.3.1 --recursive https://hub.fastgit.org/espressif/esp-idf.git #加速网址
+</code></pre><p>ESP-IDF工具安装器下载， 官方文档通过建立环境变量下载，实际测试通过Espressif的下载服务器下载也比较慢，同样通过别的加速网址下载： <code>hub.fastgit.org</code></p>
+<pre tabindex="0"><code>export IDF_GITHUB_ASSETS=&quot;dl.espressif.com/github_assets&quot; #原命令
+export IDF_GITHUB_ASSETS=&quot;hub.fastgit.org/github_assets&quot;  #加速网址
+</code></pre></li>
+<li>
+<p>VSCode 打开头文件的问题，将头文件路径添加到包含路径</p>
+<pre tabindex="0"><code>./build									#config配置参数最终将生成.h文件放到./build目录下
+~/esp/esp-idf/**						 #各个模块的头文件
+~/.espressif/tools/xtensa-esp32-elf/**	   #Cpu相关的头文件
+</code></pre></li>
+<li>
+<p>VSCode 快捷键设置，跳转更改位置： 根据需要调整 <code>前进 Go Forword</code> <code>后退 Go Back</code>对应的快捷键。</p>
+</li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>freetype QT移植</title>
+			<link>http://zhaoyu811.github.io/posts/freetyeqt%E7%A7%BB%E6%A4%8D/</link>
+			<pubDate>Sat, 30 Oct 2021 11:42:26 +0800</pubDate>
+			
+			<guid>http://zhaoyu811.github.io/posts/freetyeqt%E7%A7%BB%E6%A4%8D/</guid>
+			<description>freetype QT移植 下载 git clone https://gitlab.freedesktop.org/freetype/freetype.git git clone https://gitlab.freedesktop.org/freetype/freetype-demos.git
+QT编译 以QT mingw64 为例
+ 打开mingw64编译环境 cd freetype目录 执行 mingw32-make.exe 编译完成后将会再objs文件夹下生成freetype.a静态链接库文件  测试  cd freetype-demos目录 两个文件夹同一级目录，用于定位链接库 执行 mingw32-make.exe 编译完成后会在bin目录下生成执行文件 以ftstring 为例， 执行 ftstring.exe -m hello 150 C:\Windows\Fonts\STXINGKA.TTF 使用up down left right home end f5 f6&amp;hellip;&amp;hellip;等按键实现不同的功能  </description>
+			<content type="html"><![CDATA[<h1 id="freetype-qt移植">freetype QT移植</h1>
+<h2 id="下载">下载</h2>
+<p>git clone <a href="https://gitlab.freedesktop.org/freetype/freetype.git">https://gitlab.freedesktop.org/freetype/freetype.git</a>
+git clone <a href="https://gitlab.freedesktop.org/freetype/freetype-demos.git">https://gitlab.freedesktop.org/freetype/freetype-demos.git</a></p>
+<h2 id="qt编译">QT编译</h2>
+<p>以QT mingw64 为例</p>
+<ol>
+<li>打开mingw64编译环境</li>
+<li>cd freetype目录</li>
+<li>执行 mingw32-make.exe</li>
+<li>编译完成后将会再objs文件夹下生成freetype.a静态链接库文件</li>
+</ol>
+<h2 id="测试">测试</h2>
+<ol>
+<li>cd freetype-demos目录   两个文件夹同一级目录，用于定位链接库</li>
+<li>执行 mingw32-make.exe</li>
+<li>编译完成后会在bin目录下生成执行文件</li>
+<li>以ftstring 为例， 执行 ftstring.exe -m hello 150 C:\Windows\Fonts\STXINGKA.TTF</li>
+<li>使用up down left right home end f5 f6&hellip;&hellip;等按键实现不同的功能</li>
+</ol>
+]]></content>
+		</item>
+		
+		<item>
+			<title>RTMP服务器初体验</title>
+			<link>http://zhaoyu811.github.io/posts/rtmp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+			<pubDate>Wed, 11 Aug 2021 18:57:32 +0800</pubDate>
+			
+			<guid>http://zhaoyu811.github.io/posts/rtmp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+			<description>RTMP服务器初体验 1. 运行环境 ​	ubuntu20.04 nginx-1.20.1 nginx-rtmp-module ffmpeg
+2. 安装nginx wget https://nginx.org/download/nginx-1.20.1.tar.gz tar xvf nginx-1.20.1.tar.gz wget https://github.com/arut/nginx-rtmp-module/archive/master.zip unzip master.zip ./configure --prefix=/opt/nginx-1.20.1 --add-module=../nginx-rtmp-module-master --with-http_ssl_module make sudo make install 修改nginx 配置文件添加
+cd /opt/nginx-1.20.1sudo vim ./conf/nginx.confrtmp { server { listen 1935; #监听的端口号application App { #自定义的名字live on; } application hls { live on; hls on; hls_path /tmp/hls; hls_fragment 1s;hls_playlist_length 3s; } } }启动nginx
+sudo /opt/nginx-1.20.1/sbin/nginx -c /opt/nginx-1.20.1/conf/nginx.conf查看启动情况，看到1935和80端口被监听</description>
+			<content type="html"><![CDATA[<h1 id="rtmp服务器初体验">RTMP服务器初体验</h1>
+<h2 id="1-运行环境">1. 运行环境</h2>
+<p>​	ubuntu20.04    nginx-1.20.1   nginx-rtmp-module  ffmpeg</p>
+<h2 id="2-安装nginx">2. 安装nginx</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">wget https://nginx.org/download/nginx-1.20.1.tar.gz
+tar xvf nginx-1.20.1.tar.gz
+wget https://github.com/arut/nginx-rtmp-module/archive/master.zip
+unzip master.zip
+./configure --prefix<span class="o">=</span>/opt/nginx-1.20.1 --add-module<span class="o">=</span>../nginx-rtmp-module-master --with-http_ssl_module
+make
+sudo make install
+</code></pre></div><p>修改nginx 配置文件添加</p>
+<pre tabindex="0"><code>cd /opt/nginx-1.20.1
+sudo vim ./conf/nginx.conf
+</code></pre><pre tabindex="0"><code>rtmp {  
+    server {  
+        listen 1935;      		 #监听的端口号
+        application App {      #自定义的名字
+            live on;  
+       }  
+        application hls {  
+            live on;  
+            hls on;  
+            hls_path /tmp/hls;   
+            hls_fragment 1s;
+            hls_playlist_length 3s;  
+       }  
+    } 
+}
+</code></pre><p>启动nginx</p>
+<pre tabindex="0"><code>sudo /opt/nginx-1.20.1/sbin/nginx -c /opt/nginx-1.20.1/conf/nginx.conf
+</code></pre><p>查看启动情况，看到1935和80端口被监听</p>
+<pre tabindex="0"><code>#sudo netstat -ntlp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:1935            0.0.0.0:*               LISTEN      8957/nginx: master  
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      8957/nginx: master  
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      642/systemd-resolve 
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      798/sshd: /usr/sbin 
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      2391/cupsd          
+tcp6       0      0 :::22                   :::*                    LISTEN      798/sshd: /usr/sbin 
+tcp6       0      0 ::1:631                 :::*                    LISTEN      2391/cupsd   
+</code></pre><h2 id="3安装ffmpeg">3.安装ffmpeg</h2>
+<p>ubuntu编译安装ffmpeg</p>
+<pre tabindex="0"><code>git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
+sudo apt-get install yasm -y		#安装依赖
+cd ./ffmpeg
+./configure --prefix=/usr/local/ffmpeg
+make
+sudo make install
+</code></pre><p>windows编译好的下载链接  ffplay.exe</p>
+<pre tabindex="0"><code>https://github.com/BtbN/FFmpeg-Builds/releases
+</code></pre><h2 id="4测试">4.测试</h2>
+<p>ubuntu推流</p>
+<pre tabindex="0"><code>/usr/local/ffmpeg/bin/ffmpeg -re -i /home/book/Videos/mv.mp4  -f flv rtmp://192.168.110.129:1935/App/test
+</code></pre><p>window端使用ffmpeg的ffplay.exe工具</p>
+<pre tabindex="0"><code>ffplay.exe -i rtmp://192.168.110.129:1935/App/test
+</code></pre><h2 id="5效果">5.效果</h2>
+<p><img src="/images/rtmp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9D%E4%BD%93%E9%AA%8C-1.png" alt="效果图"></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>OpenCv编译测试</title>
+			<link>http://zhaoyu811.github.io/posts/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</link>
+			<pubDate>Wed, 11 Aug 2021 17:53:55 +0800</pubDate>
+			
+			<guid>http://zhaoyu811.github.io/posts/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</guid>
+			<description>OPENCV编译测试 1.Ubuntu编译 #wget https://github.com/opencv/opencv/archive/4.5.3.zip#unzip opencv-4.5.3#cd opencv-4.5.3#sudo apt-get install cmake#cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -B ./build -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON#cd ./build#make#make install#vim /etc/ld.so.con加入/usr/local/lib#sudo ldconfig #不执行这一步找不到链接库2.windows编译QT版 所需工具cmake-gui
+第一步
+第二步 选择编译器
+C:\Qt\Qt5.12.11\Tools\mingw730_64\bin\gcc.exeC:\Qt\Qt5.12.11\Tools\mingw730_64\bin\g++.exe第三步 确保配置项正确，同时勾选withQt选项
+第四步 勾选WITH-QT ，再次Configure，同时确保各个QT配置之项正确，
+注意：环境变量path中如果存在多余的编译器等，可能会出现问题。
+第五步 Generate
+第六步 用QT自带的编译环境执行make操作 mingw32-make.exe
+3. 测试 </description>
+			<content type="html"><![CDATA[<h1 id="opencv编译测试">OPENCV编译测试</h1>
+<h2 id="1ubuntu编译">1.Ubuntu编译</h2>
+<pre tabindex="0"><code>#wget https://github.com/opencv/opencv/archive/4.5.3.zip
+#unzip opencv-4.5.3
+#cd opencv-4.5.3
+#sudo apt-get install cmake
+#cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -B ./build -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON
+#cd ./build
+#make
+#make install
+
+#vim /etc/ld.so.con
+加入/usr/local/lib
+#sudo ldconfig     #不执行这一步找不到链接库
+</code></pre><h2 id="2windows编译qt版">2.windows编译QT版</h2>
+<p>所需工具cmake-gui</p>
+<p>第一步</p>
+<p><img src="/images/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95-1.png" alt="opencv编译测试-1"></p>
+<p>第二步 选择编译器</p>
+<p><img src="/images/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95-2.png" alt="opencv编译册俄式-2"></p>
+<p><img src="/images/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95-3.png" alt="opencv编译测试-3"></p>
+<pre tabindex="0"><code>C:\Qt\Qt5.12.11\Tools\mingw730_64\bin\gcc.exe
+C:\Qt\Qt5.12.11\Tools\mingw730_64\bin\g++.exe
+</code></pre><p>第三步 确保配置项正确，同时勾选withQt选项</p>
+<p><img src="/images/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95-4.png" alt="opencv编译测试-4"></p>
+<p>第四步 勾选WITH-QT ，再次Configure，同时确保各个QT配置之项正确，</p>
+<p>注意：环境变量path中如果存在多余的编译器等，可能会出现问题。</p>
+<p>第五步 Generate</p>
+<p>第六步 用QT自带的编译环境执行make操作  mingw32-make.exe</p>
+<h2 id="3-测试">3. 测试</h2>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenCv on Hugo Hermit</title>
+    <link>http://zhaoyu811.github.io/tags/opencv/</link>
+    <description>Recent content in OpenCv on Hugo Hermit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 11 Aug 2021 17:53:55 +0800</lastBuildDate><atom:link href="http://zhaoyu811.github.io/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenCv编译测试</title>
+      <link>http://zhaoyu811.github.io/posts/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Wed, 11 Aug 2021 17:53:55 +0800</pubDate>
+      
+      <guid>http://zhaoyu811.github.io/posts/opencv%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95/</guid>
+      <description>OPENCV编译测试 1.Ubuntu编译 #wget https://github.com/opencv/opencv/archive/4.5.3.zip#unzip opencv-4.5.3#cd opencv-4.5.3#sudo apt-get install cmake#cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -B ./build -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON#cd ./build#make#make install#vim /etc/ld.so.con加入/usr/local/lib#sudo ldconfig #不执行这一步找不到链接库2.windows编译QT版 所需工具cmake-gui
+第一步
+第二步 选择编译器
+C:\Qt\Qt5.12.11\Tools\mingw730_64\bin\gcc.exeC:\Qt\Qt5.12.11\Tools\mingw730_64\bin\g++.exe第三步 确保配置项正确，同时勾选withQt选项
+第四步 勾选WITH-QT ，再次Configure，同时确保各个QT配置之项正确，
+注意：环境变量path中如果存在多余的编译器等，可能会出现问题。
+第五步 Generate
+第六步 用QT自带的编译环境执行make操作 mingw32-make.exe
+3. 测试 </description>
+    </item>
+    
+  </channel>
+</rss>

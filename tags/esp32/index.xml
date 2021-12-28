@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>esp32 on Hugo Hermit</title>
+    <link>http://zhaoyu811.github.io/tags/esp32/</link>
+    <description>Recent content in esp32 on Hugo Hermit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 30 Oct 2021 17:43:03 +0800</lastBuildDate><atom:link href="http://zhaoyu811.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>esp32开发环境搭建</title>
+      <link>http://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Sat, 30 Oct 2021 17:43:03 +0800</pubDate>
+      
+      <guid>http://zhaoyu811.github.io/posts/esp32%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <description>esp32开发环境搭建 参考网址 https://docs.espressif.com/projects/esp-idf/zh_CN/v4.3.1/esp32/get-started/index.html#esp-idf
+安装开发环境注意问题   开发环境采用VMware+ubuntu20.04+esp-idf+vscode+vscodeEspress-idf插件
+  权限问题/dev/ttyUSB*，参考文档解决办法，将用户添加到 Linux Dialout组
+sudo usermod -a -G dialout $USER  idf.py -p /dev/ttyUSB0 flash或者 idf.py -p /dev/ttyUSB0 monitor时经常出现打不开串口的情况，将串口重新连接一下。处理流程：菜单栏Player(p)&amp;ndash;&amp;gt;可移动设备(R)，将设备断开连接&amp;ndash;&amp;gt;连接。
+  开发环境通过github下载慢。通过别的加速网址下载： hub.fastgit.org
+ESP-IDF下载：
+git clone -b v4.3.1 --recursive https://github.com/espressif/esp-idf.git #原命令git clone -b v4.3.1 --recursive https://hub.fastgit.org/espressif/esp-idf.git #加速网址ESP-IDF工具安装器下载， 官方文档通过建立环境变量下载，实际测试通过Espressif的下载服务器下载也比较慢，同样通过别的加速网址下载： hub.fastgit.org
+export IDF_GITHUB_ASSETS=&amp;quot;dl.espressif.com/github_assets&amp;quot; #原命令export IDF_GITHUB_ASSETS=&amp;quot;hub.fastgit.org/github_assets&amp;quot; #加速网址  VSCode 打开头文件的问题，将头文件路径添加到包含路径
+./build	#config配置参数最终将生成.h文件放到./build目录下~/esp/esp-idf/**	#各个模块的头文件~/.espressif/tools/xtensa-esp32-elf/**	#Cpu相关的头文件  VSCode 快捷键设置，跳转更改位置： 根据需要调整 前进 Go Forword 后退 Go Back对应的快捷键。</description>
+    </item>
+    
+  </channel>
+</rss>
